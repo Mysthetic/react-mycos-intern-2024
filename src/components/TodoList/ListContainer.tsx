@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 export interface ITodo {
   id?: string;
   title: string;
-  //isDone: boolean;
+  // isDone: boolean;
   description?: string;
   createDate: string;
   updateDate: string;

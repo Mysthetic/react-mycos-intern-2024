@@ -10,18 +10,26 @@ const UpsertTodoItem = () => {
   const [todo, setTodo] = useState<ITodo | undefined>();
   const [todoName, setTodoName] = useState("");
   const [todoDetail, setTodoDetail] = useState("");
+  const [todoCreate, setTodoCreate] = useState("");
+  const [todoUpdate, setTodoUpdate] = useState("");
+  const [todoDue, setTodoDue] = useState("");
+  const [todoTag, setTodoTag] = useState("");
   const onSave = async () => {
     if (!todo?.id && !todo) {
       await todoApi.addTodo({
-        name: todoName,
-        isDone: false,
-        detail: todoDetail,
+        title: todoName,
+        // isDone: false,
+        description: todoDetail,
+        createDate: todoCreate,
+        updateDate: todoUpdate,
+        dueDate: todoDue,
+        tags: todoTag,
       });
     } else {
       await todoApi.updateTodo(todo.id!, {
         ...todo,
-        detail: todoDetail,
-        name: todoName,
+        description: todoDetail,
+        title: todoName,
       });
     }
     navigate("/todos");
@@ -29,7 +37,7 @@ const UpsertTodoItem = () => {
   const loadTodo = useCallback(async (id: string) => {
     const res = await todoApi.getTodo(id);
     setTodo(res.data);
-    setTodoName(res.data.name ?? "");
+    setTodoName(res.data.title ?? "");
     setTodoDetail("");
   }, []);
 

@@ -21,11 +21,19 @@ const AddTodoDialog = ({
 }) => {
   const [todoName, setTodoName] = useState("");
   const [todoDetail, setTodoDetail] = useState("");
+  const [todoCreate, setTodoCreate] = useState("");
+  const [todoUpdate, setTodoUpdate] = useState("");
+  const [todoDue, setTodoDue] = useState("");
+  const [todoTag, setTodoTag] = useState("");
   const onSave = async () => {
     await todoApi.addTodo({
-      name: todoName,
-      isDone: false,
-      detail: todoDetail,
+      title: todoName,
+      // isDone: false,
+      description: todoDetail,
+      createDate: todoCreate,
+      updateDate: todoUpdate,
+      dueDate: todoDue,
+      tags: todoTag,
     });
     onSuccess?.();
     onClose();
