@@ -24,16 +24,16 @@ const AddTodoDialog = ({
   const [todoCreate, setTodoCreate] = useState("");
   const [todoUpdate, setTodoUpdate] = useState("");
   const [todoDue, setTodoDue] = useState("");
-  const [todoTag, setTodoTag] = useState("");
+  //const [todoTag, setTodoTag] = useState("");
   const onSave = async () => {
     await todoApi.addTodo({
       title: todoName,
-      // isDone: false,
+      isDone: false,
       description: todoDetail,
       createDate: todoCreate,
       updateDate: todoUpdate,
       dueDate: todoDue,
-      tags: todoTag,
+      //tags: todoTag,
     });
     onSuccess?.();
     onClose();
@@ -46,14 +46,16 @@ const AddTodoDialog = ({
     }
   }, [open]);
 
+
+  // update popup
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>TODO</DialogTitle>
+      <DialogTitle>Update Task</DialogTitle>
       <DialogContent>
         <Grid container spacing={1} direction={"column"}>
           <Grid item>
             <TextField
-              label="Name"
+              label="Title"
               variant="outlined"
               value={todoName}
               onChange={(e) => {
@@ -63,7 +65,7 @@ const AddTodoDialog = ({
           </Grid>
           <Grid item>
             <TextField
-              label="Detail"
+              label="Description"
               variant="outlined"
               value={todoDetail}
               onChange={(e) => {

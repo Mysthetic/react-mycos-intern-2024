@@ -13,17 +13,17 @@ const UpsertTodoItem = () => {
   const [todoCreate, setTodoCreate] = useState("");
   const [todoUpdate, setTodoUpdate] = useState("");
   const [todoDue, setTodoDue] = useState("");
-  const [todoTag, setTodoTag] = useState("");
+  //const [todoTag, setTodoTag] = useState("");
   const onSave = async () => {
     if (!todo?.id && !todo) {
       await todoApi.addTodo({
         title: todoName,
-        // isDone: false,
+        isDone: false,
         description: todoDetail,
         createDate: todoCreate,
         updateDate: todoUpdate,
         dueDate: todoDue,
-        tags: todoTag,
+        // tags: todoTag,
       });
     } else {
       await todoApi.updateTodo(todo.id!, {
@@ -47,12 +47,14 @@ const UpsertTodoItem = () => {
     }
   }, [id, loadTodo]);
 
+// add new task popup
   return (
-    <div>
+    <div id = "addTask">
       <Grid container spacing={1} direction={"column"}>
+        <title>Add new task</title>
         <Grid item>
           <TextField
-            label="Name"
+            label="Title"
             variant="outlined"
             value={todoName}
             onChange={(e) => {
@@ -62,7 +64,7 @@ const UpsertTodoItem = () => {
         </Grid>
         <Grid item>
           <TextField
-            label="Detail"
+            label="Description"
             variant="outlined"
             value={todoDetail}
             onChange={(e) => {
@@ -73,10 +75,10 @@ const UpsertTodoItem = () => {
       </Grid>
       <Grid container spacing={2} justifyContent={"end"} pt={3}>
         <Grid item>
-          <Button onClick={onSave}>Save</Button>
+          <Button id="add" onClick={onSave}>Done</Button>
         </Grid>
         <Grid item>
-          <Button onClick={() => navigate("/todos")} color="secondary">
+          <Button id="cancel" onClick={() => navigate("/todos")} color="secondary">
             Cancel
           </Button>
         </Grid>

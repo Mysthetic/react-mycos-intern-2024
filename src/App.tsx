@@ -5,6 +5,8 @@ import Profile from "./pages/ProfilePage";
 import DashboardPage from "./pages/DashboardPage";
 import PageLayout from "./pages/PageLayout";
 import TodoUpsertPage from "./pages/TodoUpsertPage";
+import Maintodo from "./components/MyTodo/Main/Maintodo";
+import Maincompleted from "./components/MyTodo/Main/Maincompleted"
 interface IROUTE {
   path: string;
   component: JSX.Element;
@@ -13,7 +15,12 @@ interface IROUTE {
 const ROUTES: IROUTE[] = [
   {
     path: "/todos",
-    component: <DashboardPage />,
+    //component: <DashboardPage />,
+    component: <Maintodo />,
+  },
+  {
+    path: "/todos/completed",
+    component: <Maincompleted />,
   },
   {
     path: "/todos/new",
@@ -34,7 +41,7 @@ function App() {
     <ThemeProvider theme={themeConfig}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<PageLayout />}>
+          <Route path="/" element={<Maintodo/>}>
             <Route path="*" element={<Navigate to="/todos" replace />} />
             <Route path="/" element={<Navigate to="/todos" replace />} />
             {ROUTES.map((r) => (

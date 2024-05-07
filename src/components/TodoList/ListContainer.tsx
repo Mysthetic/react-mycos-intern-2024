@@ -1,19 +1,24 @@
 import React, { useCallback, useEffect, useState } from "react";
 import TodoItem from "./TodoItem";
-import { Box, Button, Grid, Typography } from "@mui/material";
+import { Box, Button, Grid, IconButton, Typography } from "@mui/material";
 import { todoApi } from "../../api/TodoApi";
 import AddTodoDialog from "./NewTodoDialog";
 import { useNavigate } from "react-router-dom";
+import MenuIcon from '@mui/icons-material/Menu';
+import HomeIcon from '@mui/icons-material/Home';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import "../Styles/TodoHome.css";
 //import { ROUTES } from "../../App";
 export interface ITodo {
   id?: string;
   title: string;
-  // isDone: boolean;
+  isDone: boolean;
   description?: string;
   createDate: string;
   updateDate: string;
   dueDate: string;
-  tags: any;
+  //tags: any;
 }
 
 const ListContainer = () => {
@@ -39,16 +44,58 @@ const ListContainer = () => {
     getTodos();
   }, [getTodos]);
 
+
+  //overview of home
   return (
     <>
-      <Box px={4}>
+    <Grid id="nav-todo">
+                RemindMe
+            </Grid>
+            <Grid id="side-tab">
+                <IconButton id="todohome" aria-label="home">
+                    <HomeIcon sx={{ color: '#8E77B5' }} />
+                </IconButton>
+                <IconButton id="completed" aria-label="completed">
+                    <CheckBoxIcon sx={{ color: '#F5F5F5' }} />
+                </IconButton>
+                <IconButton id="addtodo" aria-label="add">
+                    <AddCircleIcon sx={{ color: '#F5F5F5' }} />
+                </IconButton>
+            </Grid>
+            <Grid id="bodytodo">
+                <h1>To-do List</h1>
+                <Grid container spacing={1} direction={"column"}>
+                    {todos.map((t) => {
+                        return (
+                            <Grid key={"todo-" + t.title} item pl={2}>
+                                <TodoItem todoItem={t} />
+                            </Grid>
+                        );
+                    })}
+                </Grid>
+            </Grid>
+
+            {/* <Box px={4}> */}
+            {/* <Grid container justifyContent={"space-between"} spacing={2}>
+                    <Grid item md={6} xs={12}>
+                        <Typography variant="h4">To-do List</Typography>
+                    </Grid>
+                </Grid> */}
+
+            {/* </Box> */}
+            <AddTodoDialog
+                open={openAddToDoDialog}
+                onClose={() => setOpenAddToDoDialog(false)}
+                onSuccess={getTodos}
+            />
+      {/* <Box px={4}>
         <Grid container justifyContent={"space-between"} spacing={2}>
           <Grid item md={6} xs={12}>
-            <Typography variant="h4">Todo List</Typography>
+            <Typography variant="h4">To-do List</Typography>
           </Grid>
           <Grid item md={"auto"} xs={12}>
             <Button
-              variant="contained"
+              //variant="contained"
               onClick={() => {
                 navigate("/todos/new");
               }}
@@ -72,7 +119,7 @@ const ListContainer = () => {
         open={openAddToDoDialog}
         onClose={() => setOpenAddToDoDialog(false)}
         onSuccess={getTodos}
-      />
+      /> */}
     </>
   );
 };
