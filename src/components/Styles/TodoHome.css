@@ -5,53 +5,176 @@
 }
 
 /* Desktop */
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1200px) {
     #nav-todo {
         background-color: #C1CFFF;
-        width: auto;
-        height: auto;
-        margin-top: -2rem;
-        padding-top: -2rem;
-        margin-left: -1rem;
-        margin-right: -0.4rem;
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5rem;
     }
+
     #webname {
         font-weight: bold;
         font-size: 2.5rem;
-        margin-left: 3rem;
-        padding-top: 1.3rem;
-        padding-bottom: 1rem;
+        margin-left: 5rem;
+        margin-top: 0.5rem;
     }
-    #side-tab{
-        background-color: #B6C6FF;
-        width: 8rem;
-        height: 54.3rem;
-        margin-top: -1.7rem;
-        margin-left: -1rem;
-        padding-left: 2rem;
-        margin-right: 50rem;
-        padding-top: 10rem;
-        padding-bottom: 20rem;
 
+    #side-tab {
+        height: 100%;
+        width: 8rem;
+        position: fixed;
+        z-index: 1;
+        top: 5rem;
+        left: 0;
+        background-color: #B6C6FF;
     }
+
     li {
         list-style-type: none;
-        margin-left: -0.5rem;
-        padding: 0;
+        margin-left: 1.5rem;
     }
-    #todohome{
+
+    #todohome {
+        margin-top: 10rem;
+        margin-bottom: 2rem;
+    }
+
+    #completed {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .AddTaskBox {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    #bodytodo {
+        background-color: #C3AEE8;
+        text-align: center;
+        width: 70rem;
+        /* height: 51rem; */
+        min-height: 80vh;
+        border-radius: 3rem;
+        border-style: solid;
+        border-color: #F5F5F5;
+        border-width: 0.5rem;
+        align-items: center;
+        margin-left: 11rem;
+        margin-top: 7rem;
+    }
+
+    #scroll {
+        overflow-y: auto;
+        width: auto;
+        height: 43rem;
+        align-items: center;
+    }
+
+    #scroll::-webkit-scrollbar {
+        width: auto;
+    }
+
+    #todolist {
+        background-color: #FCFAFF;
+        width: 61rem;
+        height: 6rem;
+        border-radius: 2rem;
+        margin-left: 2rem;
+        text-align: left;
         margin-top: 1rem;
+        margin-right: 2rem;
+    }
+
+    #blankbox {
+        margin-left: 1.5rem;
+        margin-top: 1rem;
+    }
+
+    #todo-text {
+        margin-left: 7rem;
+        margin-top: -6.3em;
+        padding-top: 1rem;
+    }
+
+    #due {
+        color: #b57789;
+        font-size: 16px;
+    }
+
+    #name {
+        font-size: 30px;
+        margin-top: -1rem;
+        font-weight: 500;
+    }
+
+    #desc {
+        font-size: 14px;
+        margin-top: -2rem;
+        color: #8E77B5;
+    }
+
+    #editbtn {
+        margin-top: -4rem;
+        text-align: right;
+        margin-right: 2rem;
+    }
+}
+
+/* labtop */
+@media screen and (min-width: 1024px) and (max-width: 1199px) {
+    #nav-todo {
+        background-color: #C1CFFF;
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5rem;
+    }
+
+    #webname {
+        font-weight: bold;
+        font-size: 2.5rem;
+        margin-left: 5rem;
+        margin-top: 0.5rem;
+    }
+
+    #side-tab {
+        height: 100%;
+        width: 8rem;
+        position: fixed;
+        z-index: 1;
+        top: 5rem;
+        left: 0;
+        background-color: #B6C6FF;
+    }
+
+    li {
+        list-style-type: none;
+        margin-left: 1.5rem;
+    }
+
+    #todohome {
+        margin-top: 10rem;
         margin-bottom: 2rem;
     }
-    #completed{
+
+    #completed {
         margin-top: 2rem;
         margin-bottom: 2rem;
     }
-    #addtodo{
+
+    .AddTaskBox {
         margin-top: 2rem;
         margin-bottom: 2rem;
     }
-    #bodytodo{
+
+    #bodytodo {
         background-color: #C3AEE8;
         text-align: center;
         width: 70rem;
@@ -61,212 +184,304 @@
         border-color: #F5F5F5;
         border-width: 0.5rem;
         align-items: center;
-        margin-left: 8rem;
+        margin-left: 13rem;
+        margin-top: 7rem;
     }
-    #scroll{
+
+    #scroll {
         overflow-y: auto;
         width: auto;
         height: 43rem;
+        align-items: center;
     }
-    #scroll::-webkit-scrollbar{
+
+    #scroll::-webkit-scrollbar {
         width: auto;
     }
-    #todolist{
+
+    #todolist {
         background-color: #FCFAFF;
         width: 61rem;
         height: 6rem;
         border-radius: 2rem;
-        margin-left: 5rem;
+        margin-left: 2rem;
         text-align: left;
         margin-top: 1rem;
-        margin-right: 5rem;
+        margin-right: 2rem;
     }
-    #blankbox{
-        margin-left: 3rem;
+
+    #blankbox {
+        margin-left: 1.5rem;
         margin-top: 1rem;
     }
-    #todo-text{
-        margin-left: 9rem;
-        margin-top: -6em;
+
+    #todo-text {
+        margin-left: 7rem;
+        margin-top: -6.3em;
         padding-top: 1rem;
     }
-    #due{
+
+    #due {
         color: #b57789;
         font-size: 16px;
     }
-    #name{
+
+    #name {
         font-size: 30px;
         margin-top: -1rem;
         font-weight: 500;
     }
-    #desc{
+
+    #desc {
         font-size: 14px;
         margin-top: -2rem;
         color: #8E77B5;
     }
-    #editbtn{
+
+    #editbtn {
         margin-top: -4rem;
         text-align: right;
         margin-right: 2rem;
-    } 
+    }
 
 }
 
 /* Tablet */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+@media screen and (min-width: 640px) and (max-width: 1023px) {
     #nav-todo {
         background-color: #C1CFFF;
-        width: auto;
-        height: auto;
-        margin-top: -2rem;
-        padding-top: -2rem;
-        margin-left: -1rem;
-        margin-right: -0.4rem;
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5rem;
     }
+
     #webname {
         font-weight: bold;
         font-size: 2.5rem;
-        margin-left: 3rem;
-        padding-top: 1.3rem;
-        padding-bottom: 1rem;
+        margin-left: 5rem;
+        margin-top: 0.5rem;
     }
-    #side-tab{
-        background-color: #B6C6FF;
-        width: 8rem;
-        height: 54.51rem;
-        margin-top: -1.7rem;
-        margin-left: -1rem;
-        padding-left: 2rem;
-        margin-right: 50rem;
-        padding-top: 10rem;
-        padding-bottom: 20rem;
 
+    #side-tab {
+        height: 100%;
+        width: 8rem;
+        position: fixed;
+        z-index: 1;
+        top: 5rem;
+        left: 0;
+        background-color: #B6C6FF;
     }
+
     li {
         list-style-type: none;
-        margin-left: -0.5rem;
-        padding: 0;
+        margin-left: 1.5rem;
     }
-    #todohome{
-        margin-top: 1rem;
+
+    #todohome {
+        margin-top: 10rem;
         margin-bottom: 2rem;
     }
-    #completed{
+
+    #completed {
         margin-top: 2rem;
         margin-bottom: 2rem;
     }
-    .AddTaskBox{
+
+    .AddTaskBox {
         margin-top: 2rem;
         margin-bottom: 2rem;
     }
-    #bodytodo{
+
+    #bodytodo {
         background-color: #C3AEE8;
         text-align: center;
-        width: 40rem;
+        width: 70rem;
         height: 51rem;
-        border-radius: 2rem;
+        border-radius: 3rem;
         border-style: solid;
         border-color: #F5F5F5;
         border-width: 0.5rem;
-        align-items: left;
-        margin-left: 4rem;
+        align-items: center;
+        margin-left: 11rem;
+        margin-top: 7rem;
     }
-    #scroll{
+
+    #scroll {
         overflow-y: auto;
         width: auto;
         height: 43rem;
     }
-    #scroll::-webkit-scrollbar{
+
+    #scroll::-webkit-scrollbar {
         width: auto;
     }
-    #todolist{
+
+    #todolist {
         background-color: #FCFAFF;
         width: 61rem;
         height: 6rem;
         border-radius: 2rem;
-        margin-left: 3rem;
+        margin-left: 2rem;
         text-align: left;
         margin-top: 1rem;
         margin-right: 2rem;
+        align-items: left;
     }
-    #blankbox{
-        margin-left: 2rem;
+
+    #blankbox {
+        margin-left: 1.5rem;
         margin-top: 1rem;
     }
-    #todo-text{
+
+    #todo-text {
         margin-left: 7rem;
-        margin-top: -6.5em;
+        margin-top: -6.3em;
         padding-top: 1rem;
-        text-align: left;
     }
-    #due{
+
+    #due {
         color: #b57789;
         font-size: 16px;
     }
-    #name{
+
+    #name {
         font-size: 30px;
         margin-top: -1rem;
         font-weight: 500;
     }
-    #desc{
+
+    #desc {
         font-size: 14px;
         margin-top: -2rem;
         color: #8E77B5;
     }
-    #editbtn{
+
+    #editbtn {
         margin-top: -3.8rem;
         text-align: right;
         margin-right: 2rem;
-    } 
-    
+    }
+
 }
 
 /* Phone */
-@media screen and (max-width: 767px) {
-    /* #webname {
+@media screen and (max-width: 639.9px) {
+    #webname {
         font-weight: bold;
         font-size: 2.5rem;
-        margin-left: 2rem;
         padding-top: 3rem;
         padding-bottom: 1rem;
         text-align: center;
+        margin-left: 1rem;
     }
+
     li {
         list-style-type: none;
-        margin-left: -0.5rem;
-        padding: 0;
+        margin-left: 3rem;
     }
-    #btm-nav{
+
+    #btm-nav {
         background-color: #B6C6FF;
         border-top: solid #F5F5F5;
         border-width: 1rem;
-        width: 48.1rem;
-        height: 8rem;
-        margin-top: -4rem;
-        margin-left: -2rem;
+        height: 7rem;
+        width: 100%;
+        position: fixed;
+        z-index: 1;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        justify-content: space-between;
         align-items: center;
     }
-    #todohome{
+
+    li {
+        list-style-type: none;
+        text-align: center;
+    }
+
+    #todohome {
+        margin-left: -1rem;
+    }
+
+    #completed {
+        margin-right: 2rem;
+    }
+
+    #scroll {
+        overflow-y: auto;
+        width: auto;
+        height: 36rem;
+    }
+
+    #scroll::-webkit-scrollbar {
+        width: auto;
+    }
+
+    #bodytodo {
+        background-color: #C3AEE8;
+        text-align: center;
+        /* width: 80rem; */
+        width: 100vw;
+        /* กำหนดความกว้างของ bodytodo เท่ากับความกว้างของ viewport */
+        min-height: 70vh;
+        border-radius: 2rem;
+        align-items: center;
+        margin-top: -2rem;
+    }
+
+    h1 {
+        padding-top: 2rem;
+        text-align: left;
+        margin-left: 3rem;
+        font-weight: 700;
+    }
+
+    #todolist {
+        background-color: #FCFAFF;
+        width: 61rem;
+        height: 5rem;
+        border-radius: 2rem;
+        margin-left: 0.5rem;
+        text-align: left;
         margin-top: 1rem;
-        margin-left: 5rem;
-        margin-bottom: 2rem;
+        margin-right: 2rem;
     }
-    #completed{
-        margin-top: -11rem;
-        margin-left: 31rem;
+
+    #blankbox {
+        margin-left: 1rem;
+        margin-top: 0.5rem;
     }
-    #plus{
-        background-color: #F5F5F5;
-        width: 10rem;
-        height: 10rem;
-        margin-top: 37rem;
-        align-items: center;
-        margin-left: 14.3rem;
-        border-radius: 50%;
+
+    #todo-text {
+        margin-left: 5.5rem;
+        margin-top: -6.5em;
+        padding-top: 2.1rem;
     }
-    #addtodo{
-        margin-top: -24rem;
-        margin-bottom: 2rem;
-        margin-left: 19.2rem;
-    } */
+
+    #due {
+        color: #b57789;
+        font-size: 10px;
+    }
+
+    #name {
+        font-size: 22px;
+        margin-top: -0.6rem;
+        font-weight: 500;
+    }
+
+    #desc {
+        font-size: 12px;
+        margin-top: -1.2rem;
+        color: #8E77B5;
+    }
+
+    #editbtn {
+        margin-top: -3.8rem;
+        text-align: right;
+        margin-right: 1rem;
+    }
 }

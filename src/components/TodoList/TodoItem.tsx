@@ -12,21 +12,13 @@ interface ITodoItemProps {
 const TodoItem = (props: ITodoItemProps) => {
   const { todoItem } = props;
   const [innerTodo, setInnerTodo] = useState<ITodo>(todoItem);
-  // const onChange = useCallback(
-  //   async (value: boolean) => {
-  //     const newTodo: ITodo = { ...innerTodo, isDone: value };
-  //     if (newTodo.id) await todoApi.updateTodo(newTodo.id, newTodo);
-  //     setInnerTodo(newTodo);
-  //   },
-  //   [innerTodo]
-  // );
   const navigate = useNavigate();
 
   // todo task box
   return (
     <>
       <Grid container>
-        <Grid id="todolist" item md={10.4} xs={10.7} sx={{ display: 'flex', flexDirection: 'column' }}>
+        <Grid id="todolist" item md={12} xs={12} sx={{ display: 'flex', flexDirection: 'column' }}>
           <Grid id="blankbtn">
             <IconButton id="blankbox" aria-label="uncompl">
               <CheckBoxOutlineBlankIcon sx={{ fontSize: '50px' }} />
@@ -44,21 +36,6 @@ const TodoItem = (props: ITodoItemProps) => {
           </div>
         </Grid>
       </Grid>
-      {/* <FormControlLabel
-        control={
-          <Checkbox
-            onChange={(e) => {
-              onChange(e.target.checked);
-            }}
-            checked={innerTodo.isDone}
-          />
-        }
-        label={innerTodo.title}
-      />
-      <Button onClick={() => navigate("/todos/" + todoItem.id)}>Open</Button>
-      <Link to={"/todos/" + todoItem.id}>Open</Link> */}
-      {/* <div id="todo-box"> */}
-      {/* </div> */}
     </>
   );
 };

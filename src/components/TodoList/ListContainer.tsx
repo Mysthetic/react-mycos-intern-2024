@@ -13,11 +13,11 @@ import "../Styles/TodoHome.css";
 export interface ITodo {
   id?: string;
   title: string;
-  isDone: boolean;
+  // isDone: boolean;
   description?: string;
-  createDate: string;
-  updateDate: string;
-  dueDate: string;
+  // createDate: string;
+  // updateDate: string;
+  dueDate?: string;
   //tags: any;
 }
 

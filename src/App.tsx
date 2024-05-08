@@ -45,7 +45,7 @@ function App() {
             <Route path="*" element={<Navigate to="/todos" replace />} />
             <Route path="/" element={<Navigate to="/todos" replace />} />
             {ROUTES.map((r) => (
-              <Route path={r.path} element={r.component} />
+              <Route key={r.path} path={r.path} element={r.component} />
             ))}
           </Route>
         </Routes>

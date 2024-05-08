@@ -4,8 +4,13 @@ import { todoApi } from "../../api/TodoApi";
 import "../Styles/AddTask.css"
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
+import { ITodo } from "../TodoList/ListContainer";
+// import useTodoForm from "../../hooks/useTodoForm/useTodoForm";
+// import TodoItem from "../TodoList/TodoItem";
+import { IAddTodo } from "./IAddTodo";
+import { useForm } from "react-hook-form";
 
-const SelfTodoForm = ({
+const TodoForm = ({
     open,
     onClose,
     onSuccess,
@@ -16,19 +21,25 @@ const SelfTodoForm = ({
 }) => {
     const [todoName, setTodoName] = useState("");
     const [todoDetail, setTodoDetail] = useState("");
-    const [todoDueDate, setTodoDueDate] = useState("");
+    const [todoDueDate, setTodoDueDate] = useState('');
 
     const onSave = async () => {
-        await todoApi.addTodo({
-            title: todoName,
-            description: todoDetail,
-            dueDate: todoDueDate,
-            isDone: false,
-            createDate: "",
-            updateDate: ""
-        });
-        onSuccess?.();
-        onClose();
+        try {
+            if (todoName) {
+                await todoApi.addTodo({
+                    title: todoName,
+                    description: todoDetail,
+                    dueDate: todoDueDate,
+                    // isDone: false,
+                    // createDate: "",
+                    // updateDate: ""
+                });
+                onSuccess?.();
+                onClose();
+            }
+        } catch (error) {
+            console.error("Error adding todo:", error);
+        }
     };
 
     useEffect(() => {
@@ -38,75 +49,137 @@ const SelfTodoForm = ({
         }
     }, [open]);
 
+    const newTodo = async (data: IAddTodo) => {
+        return await new Promise(resolve => setTimeout(resolve, 3000))
+    }
+
+    const onFormValid = async (data: IAddTodo) => {
+        await newTodo(data)
+        console.log("Send to API success", data)
+    }
+
+    const onFormInValid = (err: any) => {
+        console.log("Form err: ", err)
+    }
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isSubmitting },
+    } = useForm<IAddTodo>({
+        defaultValues: {
+            title: "",
+            description: "",
+        }
+    })
+
+    const onSubmit = handleSubmit(onFormValid, onFormInValid)
+
     return (
-        <Dialog open={open} onClose={onClose}>
-            <DialogTitle id="topic">Add new task</DialogTitle>
-            <DialogContent>
-                <Grid container spacing={1} direction={"column"}>
-                    <Grid item id="titlenew">
-                        <TextField
-                            label="Title"
-                            variant="outlined"
-                            value={todoName}
-                            autoComplete="off"
-                            onChange = {(e) => {
-                                setTodoName(e.target.value);
-                            }}
-                            // {...register("Title", { required: true })}
-                            // helperText={Error?.name ? "title is required" :""}
-                        />
-                    </Grid>
-                    <Grid item id="descrip">
-                        <TextField
-                            label="Description"
-                            variant="outlined"
-                            value={todoDetail}
-                            autoComplete="off"
-                            onChange={(e) => {
-                                setTodoDetail(e.target.value);
-                            }}
-                        />
-                    </Grid>
-                    <Grid item id="duedate">
-                        <TextField
-                            label=""
-                            type="date"
-                            variant="outlined"
-                            autoComplete="off"
-                            value={todoDueDate}
-                            onChange={(e) => {
-                                setTodoDueDate(e.target.value);
-                            }}
-                        />
-                    </Grid>
-                    <Grid item id="duetime">
-                        <TextField
-                            label=""
-                            type="time"
-                            variant="outlined"
-                            autoComplete="off"
-                            value={todoDueDate}
-                            onChange={(e) => {
-                                setTodoDueDate(e.target.value);
-                            }}
-                        />
-                    </Grid>
-                </Grid>
-            </DialogContent>
-            <DialogActions>
-                <IconButton id="addnew" aria-label="add" onClick={onSave}>
-                    <CheckCircleIcon sx={{ color: '#505C86', fontSize: '70px' }} />
-                </IconButton>
-                <IconButton id="canceladd" aria-label="add" onClick={onClose}>
-                    <CancelIcon sx={{ color: '#E48080', fontSize: '40px' }} />
-                </IconButton>
-            </DialogActions>
+        <Dialog id="adddialog" open={open} onClose={onClose} PaperProps={{ sx: {borderRadius: 10}}}>             
+            <form onSubmit={onSubmit}>
+                    <div id="addbody">
+                        <DialogTitle id="topic">Add new task</DialogTitle>
+                        <DialogContent>
+                            <Grid container spacing={1} direction={"column"}>
+                                <Grid item id="addtt">
+                                    <TextField
+                                        error={!!errors?.title}
+                                        id="titlenew"
+                                        label="Title"
+                                        variant="outlined"
+                                        value={todoName}
+                                        autoComplete="off"
+                                        {...register("title", { required: true })}
+                                        helperText={errors?.title ? "Title is required" : ""}
+                                        InputProps={{
+                                            style: {
+                                                fontSize: 20,
+                                                borderRadius: "1rem",
+                                                fontFamily: "Poppins",
+                                            },
+                                        }}
+                                        onChange={(e) => {
+                                            setTodoName(e.target.value);
+                                        }}
+                                    />
+                                </Grid>
+                                <Grid item id="adddes">
+                                    <TextField
+                                        id="descrip"
+                                        label="Description"
+                                        variant="outlined"
+                                        value={todoDetail}
+                                        autoComplete="off"
+                                        onChange={(e) => {
+                                            setTodoDetail(e.target.value);
+                                        }}
+                                        InputProps={{
+                                            style: {
+                                                fontSize: 20,
+                                                borderRadius: "1rem",
+                                                fontFamily: "Poppins",
+                                            },
+                                        }}
+                                    />
+                                </Grid>
+                                <Grid item id="adddate">
+                                    <TextField
+                                        id="duedate"
+                                        label=""
+                                        type="date"
+                                        variant="outlined"
+                                        autoComplete="off"
+                                        value={todoDueDate}
+                                        onChange={(e) => {
+                                            setTodoDueDate(e.target.value);
+                                        }}
+                                        InputProps={{
+                                            style: {
+                                                fontSize: 20,
+                                                borderRadius: "1rem",
+                                                fontFamily: "Poppins",
+                                            },
+                                        }}
+                                    />
+                                </Grid>
+                                <Grid item id="addtime">
+                                    <TextField
+                                        id="duetime"
+                                        label=""
+                                        type="time"
+                                        variant="outlined"
+                                        autoComplete="off"
+                                        value={todoDueDate}
+                                        onChange={(e) => {
+                                            setTodoDueDate(e.target.value);
+                                        }}
+                                        InputProps={{
+                                            style: {
+                                                fontSize: 20,
+                                                borderRadius: "1rem",
+                                                fontFamily: "Poppins",
+                                            },
+                                        }}
+                                    />
+                                </Grid>
+                            </Grid>
+                        </DialogContent>
+                        <div id="btn">
+                            <DialogActions>
+                                <IconButton id="addnew" aria-label="add" onClick={onSave} disabled={isSubmitting} type="submit">
+                                    <CheckCircleIcon sx={{ color: '#505C86', fontSize: '100px' }} />
+                                </IconButton>
+                                <IconButton id="canceladd" aria-label="add" onClick={onClose}>
+                                    <CancelIcon sx={{ color: '#E48080', fontSize: '40px' }} />
+                                </IconButton>
+                            </DialogActions>
+                        </div>
+                    </div>
+                </form>
         </Dialog>
     );
 };
 
-export default SelfTodoForm;
+export default TodoForm;
 
-function register(arg0: string, arg1: { required: boolean; }): import("react/jsx-runtime").JSX.IntrinsicAttributes & { variant?: import("@mui/material").TextFieldVariants | undefined; } & Omit<import("@mui/material").FilledTextFieldProps | import("@mui/material").OutlinedTextFieldProps | import("@mui/material").StandardTextFieldProps, "variant"> {
-    throw new Error("Function not implemented.");
-}
