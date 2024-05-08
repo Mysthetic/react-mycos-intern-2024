@@ -5,8 +5,6 @@ import "../Styles/AddTask.css"
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { ITodo } from "../TodoList/ListContainer";
-// import useTodoForm from "../../hooks/useTodoForm/useTodoForm";
-// import TodoItem from "../TodoList/TodoItem";
 import { IAddTodo } from "./IAddTodo";
 import { useForm } from "react-hook-form";
 

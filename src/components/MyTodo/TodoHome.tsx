@@ -10,6 +10,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import "../Styles/TodoHome.css";
 import Addbtn from "./Addbtn";
+import Edittodo from "./Edittodo";
 //import { ROUTES } from "../../App";
 export interface ITodo {
     id?: string;
@@ -27,6 +28,7 @@ const ListContainer = () => {
     //use for keep the vairable value
     const [todos, setTodos] = useState<ITodo[]>([]);
     const [openAddToDoDialog, setOpenAddToDoDialog] = useState(false);
+    const [openEditTodo, setOpenEditTodo] = useState(false);
     const getTodos = useCallback(async () => {
         const result = await todoApi.getTodos();
         setTodos(result.data);
@@ -61,9 +63,9 @@ const ListContainer = () => {
                                     </IconButton>
                                 </li>
                                 {/* <li id="li3"> */}
-                                    <div className="AddTaskBox">
-                                        <Addbtn onSuccess={handleSuccess} />
-                                    </div>
+                                <div className="AddTaskBox">
+                                    <Addbtn onSuccess={handleSuccess} />
+                                </div>
                                 {/* </li> */}
                                 <li id="li2">
                                     <IconButton id="completed" aria-label="completed">
@@ -82,7 +84,8 @@ const ListContainer = () => {
                                 {todos.map((t) => {
                                     return (
                                         <Grid key={"todo-" + t.title} item pl={2} >
-                                            <TodoItem todoItem={t} key={t.id} />
+                                            {/* <TodoItem todoItem={t} key={t.id} /> */}
+                                            <TodoItem props={t} onEdit={() => { setOpenEditTodo(true) }} key={t.id} />
                                         </Grid>
                                     );
                                 })}
@@ -108,6 +111,10 @@ const ListContainer = () => {
                 onClose={() => setOpenAddToDoDialog(false)}
                 onSuccess={getTodos}
             />
+            <Edittodo
+                open={openEditTodo}
+                onClose={() => setOpenEditTodo(false)}
+                onSuccess={getTodos} />
         </>
     );
 };

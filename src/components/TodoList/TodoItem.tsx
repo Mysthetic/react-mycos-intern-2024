@@ -6,13 +6,25 @@ import { Link, useNavigate } from "react-router-dom";
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CreateIcon from '@mui/icons-material/Create';
 import "../Styles/TodoHome.css";
+import Editbtn from "../MyTodo/Editbtn";
 interface ITodoItemProps {
   todoItem: ITodo;
 }
-const TodoItem = (props: ITodoItemProps) => {
-  const { todoItem } = props;
+const TodoItem = ({
+  props,
+  onEdit
+}: {
+  props:ITodo;
+  onEdit: () => void;
+}) => {
+  const todoItem = {...props};
   const [innerTodo, setInnerTodo] = useState<ITodo>(todoItem);
   const navigate = useNavigate();
+
+  function handleSuccess(): void {
+    onEdit();
+    throw new Error("Function not implemented.");
+  }
 
   // todo task box
   return (
@@ -24,11 +36,9 @@ const TodoItem = (props: ITodoItemProps) => {
               <CheckBoxOutlineBlankIcon sx={{ fontSize: '50px' }} />
             </IconButton>
           </Grid>
-          <Grid id="editbtn">
-            <IconButton id="edit-btn" aria-label="edit">
-              <CreateIcon sx={{ fontSize: '40px' }} />
-            </IconButton>
-          </Grid>
+          <div className="EditTaskBox">
+            <Editbtn onSuccess={handleSuccess} />
+          </div>
           <div id="todo-text">
             <p id="due">Due at : {innerTodo.dueDate}</p>
             <p id='name'>{innerTodo.title}</p>
