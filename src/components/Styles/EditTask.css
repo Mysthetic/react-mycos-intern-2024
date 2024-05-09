@@ -4,8 +4,8 @@
     background-color: #EAE3F6;
 }
 
-#addbody{
-    background-color: #C1CFFF;
+#editbody{
+    background-color: #DBC9FA;
     width: 27rem;
     align-self: center;
     border-radius: 2rem;
@@ -15,11 +15,11 @@
     text-align: center;
     font-weight: bold;
     font-size: 2rem;
-    padding-top: 3rem;
+    padding-top: 5rem;
 }
 
-#addtt,
-#adddes{
+#edittt,
+#editdes{
     text-align: center;
     margin-top: 1rem;
 }
@@ -36,7 +36,7 @@
     height: 5rem;
 }
 
-#adddate{
+#editdate{
     margin-top: 1rem;
     margin-left: 1rem;
 }
@@ -47,7 +47,7 @@
     border-radius: 1rem;
 }
 
-#addtime{
+#edittime{
     margin-top: -4.3rem;
     margin-left: 13.3rem;
 }
@@ -57,13 +57,45 @@
     border-radius: 1rem;
 }
 
-#addnew {
-    flex: 1;
-    display: flex;
-    margin-left: 4rem;
+#deltask {
+    background-color: #F69393;
+    border: none;
+    border-radius: 1.8rem;
+    color: #5F3535;
+    padding: 20px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 2.5rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    cursor: pointer;
 }
 
-#canceladd {
+#deltask:hover {background-color: #f06b6b}
+
+#editup{
+    background-color: #505C86;
+    border: none;
+    border-radius: 1.8rem;
+    color: #E7D9FF;
+    padding: 20px 33px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    margin-right: -0.5rem;
+}
+
+#editup:hover {background-color: #39415f}
+
+#canceledit {
     align-self: flex-start;
-    margin-top: -27rem;
+    margin-top: -29.5rem;
 }

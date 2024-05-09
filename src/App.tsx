@@ -30,10 +30,10 @@ const ROUTES: IROUTE[] = [
     path: "/todos/:id",
     component: <TodoUpsertPage />,
   },
-  {
-    path: "/profile",
-    component: <Profile />,
-  },
+  // {
+  //   path: "/profile",
+  //   component: <Profile />,
+  // },
 ];
 
 function App() {

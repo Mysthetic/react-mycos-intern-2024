@@ -11,7 +11,7 @@ const AddTodoBtn = ({
     const [openForm, setOpenForm] = useState(false);
 
     const handleOpenForm = () => {
-        setOpenForm(true);
+        onSuccess?.();
     };
 
     const handleCloseForm = () => {
@@ -24,7 +24,6 @@ const AddTodoBtn = ({
                 <IconButton id="addtodo" aria-label="add" onClick={handleOpenForm}>
                     <AddCircleIcon sx={{ color: '#E7D9FF', fontSize: '70px' }} />
                 </IconButton>
-                <Addtodo open={openForm} onClose={handleCloseForm} onSuccess={onSuccess} />
             </li >
         </>
     );

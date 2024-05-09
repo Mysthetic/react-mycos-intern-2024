@@ -15,7 +15,7 @@
     text-align: center;
     font-weight: bold;
     font-size: 2rem;
-    padding-top: 3rem;
+    padding-top: 5rem;
 }
 
 #addtt,
@@ -58,12 +58,10 @@
 }
 
 #addnew {
-    flex: 1;
-    display: flex;
-    margin-left: 4rem;
+    margin-right: 4.5rem;
 }
 
 #canceladd {
     align-self: flex-start;
-    margin-top: -27rem;
+    margin-top: -29.5rem;
 }
