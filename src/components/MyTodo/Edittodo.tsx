@@ -32,7 +32,7 @@ const TodoForm = ({
                 ...data,
                 description: todoDetail,
                 title: todoName,
-                dueDate: todoDueDate,
+                dueDate: todoDueDate || undefined,
             });
         }
         onSuccess?.();
@@ -46,7 +46,6 @@ const TodoForm = ({
         }
         onClose();
     }
-    
 
 
     const loadTodo = useCallback(async (id: string) => {
@@ -200,4 +199,3 @@ const TodoForm = ({
 };
 
 export default TodoForm;
-

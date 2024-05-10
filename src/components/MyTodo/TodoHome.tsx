@@ -13,12 +13,11 @@ import Edittodo from "./Edittodo";
 export interface ITodo {
     id?: string;
     title: string;
-    // isDone: boolean;
+    status: string;
     description?: string;
     // createDate: string;
     // updateDate: string;
     dueDate?: string | null;
-    //tags: any;
 }
 
 const ListContainer = () => {
@@ -41,8 +40,12 @@ const ListContainer = () => {
 
     function handleSuccess(): void {
         setOpenAddToDoDialog(true)
-        // throw new Error("Function not implemented.");
     }
+
+    // const completedTodo = async () => {
+    //     if (true)
+    //         navigate("/todos/completed")
+    // }
 
     //overview of home
     return (
@@ -66,7 +69,7 @@ const ListContainer = () => {
                                     <Addbtn onSuccess={handleSuccess} />
                                 </div>
                                 <li id="li2">
-                                    <IconButton id="completed" aria-label="completed" onClick={() => navigate('/todos/completed')}>
+                                    <IconButton id="completed" aria-label="completed" onClick={() => navigate('/completed', {replace: true})}>
                                         <CheckBoxIcon sx={{ color: '#F5F5F5', fontSize: '70px' }} />
                                     </IconButton>
                                 </li>
@@ -83,7 +86,7 @@ const ListContainer = () => {
                                     return (
                                         <Grid key={"todo-" + t.title} item pl={2} >
                                             {/* <TodoItem todoItem={t} key={t.id} /> */}
-                                            <TodoItem props={t} dataToEdit={(data) => {setDataEdit(data)}} onEdit={() => { setOpenEditTodo(true) }} key={t.id} />
+                                            <TodoItem props={t} dataToEdit={(data) => {setDataEdit(data)}} onEdit={() => { setOpenEditTodo(true) }} key={t.id} onCheck={getTodos}/>
                                         </Grid>
                                     );
                                 })}

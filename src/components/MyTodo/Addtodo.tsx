@@ -20,6 +20,7 @@ const Addtodo = ({
     const [todoName, setTodoName] = useState("");
     const [todoDetail, setTodoDetail] = useState("");
     const [todoDueDate, setTodoDueDate] = useState("");
+    const [todoDone, setTodoDone] = useState("");
 
     const onSave = async () => {
         // try {
@@ -27,7 +28,7 @@ const Addtodo = ({
             title: todoName,
             description: todoDetail,
             dueDate: todoDueDate || undefined,
-            // isDone: false,
+            status: todoDone,
             // createDate: "",
             // updateDate: ""
         });
@@ -35,8 +36,6 @@ const Addtodo = ({
         onClose();
         // } catch (error) {
         //     console.error("Error adding todo:", error);
-
-
 
     };
 

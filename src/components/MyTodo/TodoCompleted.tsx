@@ -12,12 +12,11 @@ import Addbtn from "./Addbtn";
 export interface ITodo {
     id?: string;
     title: string;
-    // isDone: boolean;
+    isDone: boolean;
     description?: string;
     // createDate: string;
     // updateDate: string;
-    dueDate?: string;
-    //tags: any;
+    dueDate?: string | null;
 }
 
 const ListContainer = () => {
@@ -26,9 +25,10 @@ const ListContainer = () => {
     const [todos, setTodos] = useState<ITodo[]>([]);
     const [openAddToDoDialog, setOpenAddToDoDialog] = useState(false);
     const [openEditTodo, setOpenEditTodo] = useState(false);
+    const [dataEdit, setDataEdit] = useState<ITodo>();
     const getTodos = useCallback(async () => {
         const result = await todoApi.getTodos();
-        // setTodos(result.data);
+        setTodos(result.data);
     }, []);
     const navigate = useNavigate();
 
@@ -38,7 +38,7 @@ const ListContainer = () => {
 
 
     function handleSuccess(): void {
-        throw new Error("Function not implemented.");
+        setOpenAddToDoDialog(true)
     }
 
     //overview of home
@@ -55,8 +55,8 @@ const ListContainer = () => {
                         <Grid id="side-tab">
                             <Grid id="btm-nav" md={12} xs={12}>
                                 <li id="li1">
-                                    <IconButton id="todohome" aria-label="home">
-                                        <HomeIcon sx={{ color: '#8E77B5', fontSize: '70px' }} />
+                                    <IconButton id="todohome" aria-label="home" onClick={() => navigate('/', {replace: true})}>
+                                        <HomeIcon sx={{ color: '#F5F5F5', fontSize: '70px' }} />
                                     </IconButton>
                                 </li>
                                 <div className="AddTaskBox">
@@ -64,7 +64,7 @@ const ListContainer = () => {
                                 </div>
                                 <li id="li2">
                                     <IconButton id="completed" aria-label="completed">
-                                        <CheckBoxIcon sx={{ color: '#F5F5F5', fontSize: '70px' }} />
+                                        <CheckBoxIcon sx={{ color: '#8E77B5', fontSize: '70px' }} />
                                     </IconButton>
                                 </li>
                             </Grid>
@@ -79,7 +79,7 @@ const ListContainer = () => {
                                 {todos.map((t) => {
                                     return (
                                         <Grid key={"todo-" + t.title} item pl={2} >
-                                            <TodoItemComp todoItem={t} />
+                                            {/* <TodoItemComp todoItem={t} /> */}
                                         </Grid>
                                     );
                                 })}

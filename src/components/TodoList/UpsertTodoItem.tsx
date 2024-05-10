@@ -2,7 +2,7 @@ import { Button, Grid, TextField } from "@mui/material";
 import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { todoApi } from "../../api/TodoApi";
-import { ITodo } from "./ListContainer";
+import { ITodo } from "../MyTodo/TodoHome";
 
 const UpsertTodoItem = () => {
   const { id } = useParams();
@@ -18,10 +18,10 @@ const UpsertTodoItem = () => {
     if (!todo?.id && !todo) {
       await todoApi.addTodo({
         title: todoName,
-        isDone: false,
+        // isDone: false,
         description: todoDetail,
-        createDate: todoCreate,
-        updateDate: todoUpdate,
+        // createDate: todoCreate,
+        // updateDate: todoUpdate,
         dueDate: todoDue,
         // tags: todoTag,
       });

@@ -9,5 +9,5 @@ export const todoApi = {
   updateTodo: (id: string, todo: ITodo) => axios.put(base_url + `/${id}`, todo),
   deleteTodo: (id: string) => axios.delete<ITodo>(base_url + `/${id}`),
   getTodo: (id: string) => axios.get<ITodo>(base_url + `/${id}`),
-  // completedTodo: // You can implement this function if needed
+  //completedTodo: (id: string, isDone: Boolean) => axios.put(base_url + `/${id}`, isDone)
 };
