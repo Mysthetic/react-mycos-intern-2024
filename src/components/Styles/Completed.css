@@ -93,10 +93,10 @@
         margin-top: 1rem;
         margin-right: 3rem;
     }
-    #check{
+    /* #check{
         margin-left: 1.5rem;
         margin-top: 1rem;
-    }
+    } */
     #comp-text{
         margin-left: 9rem;
         margin-top: -3em;
@@ -200,10 +200,10 @@
         margin-top: 1rem;
         margin-right: 2rem;
     }
-    #check{
+    /* #check{
         margin-left: 1.5rem;
         margin-top: 1rem;
-    }
+    } */
     #comp-text{
         margin-left: 7rem;
         margin-top: -3em;
@@ -295,7 +295,7 @@
     #scroll::-webkit-scrollbar {
         width: auto;
     }
-    #todolist{
+    /* #todolist{
         background-color: #FCFAFF;
         width: 61rem;
         height: 6rem;
@@ -305,11 +305,11 @@
         margin-top: 1rem;
         margin-right: 2rem;
         align-items: left;
-    }
-    #check{
+    } */
+    /* #check{
         margin-left: 1.5rem;
         margin-top: 1rem;
-    }
+    } */
     #comp-text{
         margin-left: 7rem;
         margin-top: -3em;
@@ -371,7 +371,7 @@
         margin-right: 2rem;
     }
 
-    #scroll {
+    /* #scroll {
         overflow-y: auto;
         width: auto;
         height: 36rem;
@@ -379,10 +379,10 @@
 
     #scroll::-webkit-scrollbar {
         width: auto;
-    }
+    } */
 
     #bodycomplt {
-        background-color: #C3AEE8;
+        background-color: #CBD4F5;
         text-align: center;
         /* width: 80rem; */
         width: 100vw;
@@ -412,10 +412,10 @@
         margin-right: 2rem;
     }
 
-    #check{
+    /* #check{
         margin-left: 1rem;
         margin-top: 0.5rem;
-    }
+    } */
     #comp-text{
         margin-left: 5.5rem;
         margin-top: -4em;

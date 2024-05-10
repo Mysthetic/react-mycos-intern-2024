@@ -57,14 +57,13 @@
         background-color: #C3AEE8;
         text-align: center;
         width: 70rem;
-        /* height: 51rem; */
-        min-height: 80vh;
+        height: 51rem;
         border-radius: 3rem;
         border-style: solid;
         border-color: #F5F5F5;
         border-width: 0.5rem;
         align-items: center;
-        margin-left: 11rem;
+        margin-left: 13rem;
         margin-top: 7rem;
     }
 
@@ -72,12 +71,30 @@
         overflow-y: auto;
         width: auto;
         height: 43rem;
-        align-items: center;
+        margin-right: 2rem;
     }
 
-    #scroll::-webkit-scrollbar {
-        width: auto;
+    ::-webkit-scrollbar {
+        width: 20px;
     }
+
+    ::-webkit-scrollbar-track {
+        background-color: #CBD4F5;
+        border-radius: 10px;
+    }
+
+   ::-webkit-scrollbar-thumb {
+        background: #8E77B5;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #56486d;
+    }
+
+    /* #scroll::-webkit-scrollbar {
+        width: auto;
+    } */
 
     #todolist {
         background-color: #FCFAFF;
@@ -192,12 +209,30 @@
         overflow-y: auto;
         width: auto;
         height: 43rem;
-        align-items: center;
+        margin-right: 2rem;
     }
 
-    #scroll::-webkit-scrollbar {
-        width: auto;
+    ::-webkit-scrollbar {
+        width: 20px;
     }
+
+    ::-webkit-scrollbar-track {
+        background-color: #CBD4F5;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #8E77B5;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #56486d;
+    }
+
+    /* #scroll::-webkit-scrollbar {
+        width: auto;
+    } */
 
     #todolist {
         background-color: #FCFAFF;
@@ -307,17 +342,48 @@
         align-items: center;
         margin-left: 11rem;
         margin-top: 7rem;
+        /* background-color: #C3AEE8;
+        text-align: center;
+        width: 70rem; */
+        /* height: 51rem; */
+        /* min-height: 80vh;
+        border-radius: 3rem;
+        border-style: solid;
+        border-color: #F5F5F5;
+        border-width: 0.5rem;
+        align-items: center;
+        margin-left: 11rem;
+        margin-top: 7rem; */
     }
 
     #scroll {
         overflow-y: auto;
         width: auto;
         height: 43rem;
+        margin-right: 2rem;
     }
 
-    #scroll::-webkit-scrollbar {
-        width: auto;
+    ::-webkit-scrollbar {
+        width: 20px;
     }
+
+    ::-webkit-scrollbar-track {
+        background-color: #CBD4F5;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #8E77B5;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #56486d;
+    }
+
+    /* #scroll::-webkit-scrollbar {
+        width: auto;
+    } */
 
     #todolist {
         background-color: #FCFAFF;
@@ -327,7 +393,7 @@
         margin-left: 2rem;
         text-align: left;
         margin-top: 1rem;
-        margin-right: 2rem;
+        margin-right: 2.5rem;
         align-items: left;
     }
 
@@ -417,12 +483,30 @@
         height: 36rem;
     }
 
-    #scroll::-webkit-scrollbar {
-        width: auto;
+    ::-webkit-scrollbar {
+        width: 20px;
     }
 
+    ::-webkit-scrollbar-track {
+        background-color: #CBD4F5;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #AC9ACB;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #84769c;
+    }
+
+    /* #scroll::-webkit-scrollbar {
+        width: auto;
+    } */
+
     #bodytodo {
-        background-color: #C3AEE8;
+        /* background-color: #D7C9F0; */
         text-align: center;
         /* width: 80rem; */
         width: 100vw;
@@ -458,7 +542,7 @@
 
     #todo-text {
         margin-left: 5.5rem;
-        margin-top: -6.5em;
+        margin-top: -6.7em;
         padding-top: 2.1rem;
     }
 
